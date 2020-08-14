@@ -6,6 +6,7 @@ class Usuario extends CI_Controller{
     #construtor da classe
     public function __construct() {
         parent::__construct();
+        #carrega a model usuario.
         $this->load->model("usuario_model");
         
     }
@@ -27,5 +28,21 @@ class Usuario extends CI_Controller{
 //    }
     public function salvar(){
         $this->usuario_model->inserir();
+    }
+    
+    public function listar(){
+        $resultado = $this->usuario_model->obterTodos();
+        
+        $vetor["usuarios"] = $resultado;
+        $vetor["titulo"] = "Usuarios cadastrados";
+        
+        $this->load->view("usuario/lista", $vetor);
+        
+    }
+    
+    public function excluir($codigo){
+        #chama a função delete do banco de dados passando o código do usuário
+        $this->usuario_model->deletar($codigo);
+        echo $this->db->last_query();
     }
 }
