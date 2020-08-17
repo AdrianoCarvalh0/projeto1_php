@@ -23,13 +23,13 @@ and open the template in the editor.
                         <h4><b><?php echo "Nome: $usuario->nome" ?></b></h4>
                         <p><?php echo "Login: $usuario->login" ?></p>
                         <?php echo "<a href='". site_url("usuario/excluir/$usuario->idusuario") ."'> Excluir </a> " ?>
-<!--                        echo "<a href=". .">Atualizar</a>"-->
+                        <?= "<a href='". site_url("usuario/atualizar/$usuario->idusuario") ."'> Atualizar </a> "?>
                      </div>
                     <hr>
                 </div>
 <!--//                        echo "Nome: $usuario->nome, Login: $usuario->login <br>";-->
         <?php }
         ?>
-
+        <a href="<?= site_url("usuario/adicionar") ?>"><input type="button" value="adicionar" name="adicionar" /></a>
     </body>
 </html>
