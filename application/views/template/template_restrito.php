@@ -22,20 +22,27 @@
   <body>
     <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">Carousel</a>
+    <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+<!--          $this->router->class, vê qual rota está sendo usada. Se rota = site, escreva active, senão não escreva nada.-->
+          <li class="nav-item <?= $this->router->class == "site" ? "active" : "" ?>">
+          <a class="nav-link" href="<?= site_url("site/index") ?>">Site <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+        <li class="nav-item <?= $this->router->class == "categoria" ? "active" : "" ?>">
+          <a class="nav-link" href="<?= site_url("categoria/index") ?>">Categoria</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <li class="nav-item <?= $this->router->class == "noticia" ? "active" : "" ?>">
+          <a class="nav-link" href="<?= site_url("noticia/index") ?>">Notícias</a>
+        </li>
+        <li class="nav-item <?= $this->router->class == "user" ? "active" : "" ?>">
+          <a class="nav-link" href="<?= site_url("user/index") ?>">Usuário</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="<?= site_url("logout/index") ?>">Sair</a>
         </li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">
