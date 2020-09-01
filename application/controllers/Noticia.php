@@ -12,6 +12,14 @@ class Noticia extends CI_Controller{
        
         $crud->set_subject("Notícia","Notícias");
         
+        $crud->set_field_upload("foto", "assets/uploads/files");
+        $crud->set_relation("categoria_idcategoria", "categoria", "nome");
+        $crud->set_relation("usuario_idusuario", "usuario", "nome");
+        
+        $crud->display_as("categoria_idcategoria", "Categoria");
+        
+        $crud->display_as("usuario_idusuario", "Autor");
+        
         $form = $crud->render();    
        
         $this->template->load("template/template_restrito", "crud/index", $form);

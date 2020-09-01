@@ -16,7 +16,7 @@
             foreach ($css_files as $css){
                 echo "<link rel='stylesheet' href='$css' />";
             }
-        ?>
+    ?>
 
   </head>
   <body>
